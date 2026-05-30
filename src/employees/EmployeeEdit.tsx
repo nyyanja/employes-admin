@@ -41,6 +41,7 @@ export const EmployeeEdit = () => (
         source="salary"
         label="Salaire"
         validate={[required(), minValue(1500)]}
+        min={1500}
       />
       <BooleanInput source="active" label="Actif" />
     </SimpleForm>

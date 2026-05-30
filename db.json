@@ -33,7 +33,7 @@
       "lastname": "Moreau",
       "email": "david@company.com",
       "department": "Finance",
-      "salary": 3100,
+      "salary": 1500,
       "active": true
     },
     {
@@ -42,7 +42,7 @@
       "lastname": "Bernard",
       "email": "emma@company.com",
       "department": "Informatique",
-      "salary": 2950,
+      "salary": 2500,
       "active": true
     }
   ]
