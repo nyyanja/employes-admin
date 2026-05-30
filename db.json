@@ -6,7 +6,7 @@
       "lastname": "Martin",
       "email": "alice@company.com",
       "department": "Informatique",
-      "salary": 28000,
+      "salary": 2800,
       "active": true
     },
     {
@@ -33,7 +33,7 @@
       "lastname": "Moreau",
       "email": "david@company.com",
       "department": "Finance",
-      "salary": 1500,
+      "salary": 3100,
       "active": true
     },
     {
@@ -42,17 +42,75 @@
       "lastname": "Bernard",
       "email": "emma@company.com",
       "department": "Informatique",
-      "salary": 2500,
+      "salary": 2950,
       "active": true
+    }
+  ],
+  "interns": [
+    {
+      "id": 1,
+      "firstname": "Lucas",
+      "lastname": "Petit",
+      "email": "lucas.petit@company.com",
+      "department": "Informatique",
+      "managerId": 1,
+      "startDate": "2025-01-15",
+      "endDate": "2025-07-15",
+      "contractType": "Convention de stage",
+      "stipend": 627,
+      "status": "active"
     },
     {
-      "active": true,
-      "firstname": "Ny ",
-      "lastname": "Anja",
-      "email": "nyanja@gmail.com",
+      "id": 2,
+      "firstname": "Camille",
+      "lastname": "Rousseau",
+      "email": "camille.rousseau@company.com",
+      "department": "Marketing",
+      "managerId": 2,
+      "startDate": "2025-03-01",
+      "endDate": "2025-04-30",
+      "contractType": "Convention de stage",
+      "stipend": 0,
+      "status": "active"
+    },
+    {
+      "id": 3,
+      "firstname": "Hugo",
+      "lastname": "Lambert",
+      "email": "hugo.lambert@company.com",
+      "department": "RH",
+      "managerId": 3,
+      "startDate": "2025-02-01",
+      "endDate": "2025-08-01",
+      "contractType": "Convention de stage",
+      "stipend": 627,
+      "status": "active"
+    },
+    {
+      "id": 4,
+      "firstname": "Léa",
+      "lastname": "Fontaine",
+      "email": "lea.fontaine@company.com",
+      "department": "Finance",
+      "managerId": 4,
+      "startDate": "2025-04-01",
+      "endDate": "2025-05-31",
+      "contractType": "Convention de stage",
+      "stipend": 0,
+      "status": "finished"
+    },
+    {
+      "id": 5,
+      "firstname": "Nathan",
+      "lastname": "Girard",
+      "email": "nathan.girard@company.com",
       "department": "Informatique",
-      "salary": 50000000000,
-      "id": 6
+      "managerId": 5,
+      "startDate": "2025-05-01",
+      "endDate": "2025-10-31",
+      "contractType": "Convention de stage",
+      "stipend": 627,
+      "status": "active"
     }
   ]
 }
