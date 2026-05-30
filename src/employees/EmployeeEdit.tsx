@@ -6,6 +6,7 @@ import {
   SelectInput,
   BooleanInput,
   required,
+  email,
   minValue,
   useRecordContext,
 } from "react-admin";
@@ -25,7 +26,7 @@ export const EmployeeEdit = () => (
     <SimpleForm>
       <TextInput source="firstname" label="Prénom" validate={required()} />
       <TextInput source="lastname" label="Nom" validate={required()} />
-      <TextInput source="email" label="Email" validate={required()} />
+     <TextInput source="email" label="Email" validate={[required(), email()]} />
       <SelectInput
         source="department"
         label="Département"
