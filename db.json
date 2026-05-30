@@ -44,6 +44,15 @@
       "department": "Informatique",
       "salary": 2500,
       "active": true
+    },
+    {
+      "active": true,
+      "firstname": "Ny ",
+      "lastname": "Anja",
+      "email": "nyanja@gmail.com",
+      "department": "Informatique",
+      "salary": 50000000000,
+      "id": 6
     }
   ]
 }
