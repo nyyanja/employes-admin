@@ -35,7 +35,11 @@ export const InternCreate = () => (
     <SimpleForm>
       <TextInput source="firstname" label="Prénom" validate={required()} />
       <TextInput source="lastname" label="Nom" validate={required()} />
-      <TextInput source="email" label="Email" validate={[required(), email()]} />
+      <TextInput
+        source="email"
+        label="Email"
+        validate={[required(), email()]}
+      />
       <SelectInput
         source="department"
         label="Département"
@@ -53,15 +57,17 @@ export const InternCreate = () => (
           validate={required()}
         />
       </ReferenceInput>
-      <DateInput source="startDate" label="Date de début" validate={required()} />
+      <DateInput
+        source="startDate"
+        label="Date de début"
+        validate={required()}
+      />
       <DateInput source="endDate" label="Date de fin" validate={required()} />
       <SelectInput
         source="contractType"
         label="Type de contrat"
         validate={required()}
-        choices={[
-          { id: "Convention de stage", name: "Convention de stage" },
-        ]}
+        choices={[{ id: "Convention de stage", name: "Convention de stage" }]}
         defaultValue="Convention de stage"
       />
       <NumberInput

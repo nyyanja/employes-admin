@@ -26,7 +26,11 @@ export const EmployeeEdit = () => (
     <SimpleForm>
       <TextInput source="firstname" label="Prénom" validate={required()} />
       <TextInput source="lastname" label="Nom" validate={required()} />
-     <TextInput source="email" label="Email" validate={[required(), email()]} />
+      <TextInput
+        source="email"
+        label="Email"
+        validate={[required(), email()]}
+      />
       <SelectInput
         source="department"
         label="Département"
