@@ -13,7 +13,11 @@ import {
 const EmployeeTitle = () => {
   const record = useRecordContext();
   if (!record) return <span>Modifier un employé</span>;
-  return <span>Modifier : {record.firstname} {record.lastname}</span>;
+  return (
+    <span>
+      Modifier : {record.firstname} {record.lastname}
+    </span>
+  );
 };
 
 export const EmployeeEdit = () => (
