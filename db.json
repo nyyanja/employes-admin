@@ -58,6 +58,7 @@
       "endDate": "2025-07-15",
       "contractType": "Convention de stage",
       "stipend": 627,
+      "isRemunerate": true,
       "status": "active"
     },
     {
@@ -71,6 +72,7 @@
       "endDate": "2025-04-30",
       "contractType": "Convention de stage",
       "stipend": 0,
+      "isRemunerate": false,
       "status": "active"
     },
     {
@@ -84,6 +86,7 @@
       "endDate": "2025-08-01",
       "contractType": "Convention de stage",
       "stipend": 627,
+      "isRemunerate": true,
       "status": "active"
     },
     {
@@ -97,6 +100,7 @@
       "endDate": "2025-05-31",
       "contractType": "Convention de stage",
       "stipend": 0,
+      "isRemunerate": false,
       "status": "finished"
     },
     {
@@ -110,6 +114,7 @@
       "endDate": "2025-10-31",
       "contractType": "Convention de stage",
       "stipend": 627,
+      "isRemunerate": true,
       "status": "active"
     }
   ]
