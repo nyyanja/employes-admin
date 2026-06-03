@@ -5,29 +5,63 @@ import {
   NumberInput,
   SelectInput,
   DateInput,
+  BooleanInput,
   ReferenceInput,
   required,
   email,
   minValue,
-  maxValue,
 } from "react-admin";
+import { useWatch } from "react-hook-form";
 
-const validateStipend = (value: number, allValues: any) => {
-  if (!allValues.startDate || !allValues.endDate) return undefined;
+const StipendInput = () => {
+  const isRemunerate = useWatch({ name: "isRemunerate" });
 
-  const start = new Date(allValues.startDate);
-  const end = new Date(allValues.endDate);
-  const months =
-    (end.getFullYear() - start.getFullYear()) * 12 +
-    (end.getMonth() - start.getMonth());
+  const validateStipend = (value: number, allValues: any) => {
+    if (!isRemunerate) return undefined;
+    if (!value || value < 627) {
+      return "Gratification minimale de 627 € requise";
+    }
+    if (!allValues.startDate || !allValues.endDate) return undefined;
+    const start = new Date(allValues.startDate);
+    const end = new Date(allValues.endDate);
+    const months =
+      (end.getFullYear() - start.getFullYear()) * 12 +
+      (end.getMonth() - start.getMonth());
+    if (months > 2 && value < 627) {
+      return "Stage > 2 mois : gratification minimale de 627 €";
+    }
+    return undefined;
+  };
 
-  if (months > 2 && value < 627) {
-    return "Stage > 2 mois : gratification minimale de 627 €";
-  }
-  if (months <= 2 && value > 0) {
-    return "Stage ≤ 2 mois : gratification non obligatoire (0 €)";
-  }
-  return undefined;
+  return (
+    <NumberInput
+      source="stipend"
+      label="Gratification (€/mois)"
+      validate={
+        isRemunerate ? [required(), minValue(627), validateStipend] : []
+      }
+      disabled={!isRemunerate}
+      defaultValue={isRemunerate ? 627 : 0}
+    />
+  );
+};
+
+const ManagerInput = () => {
+  const department = useWatch({ name: "department" });
+
+  return (
+    <ReferenceInput
+      source="managerId"
+      reference="employees"
+      filter={{ department, active: true }}
+    >
+      <SelectInput
+        label="Manager"
+        optionText={(record) => `${record.firstname} ${record.lastname}`}
+        validate={required()}
+      />
+    </ReferenceInput>
+  );
 };
 
 export const InternCreate = () => (
@@ -51,12 +85,7 @@ export const InternCreate = () => (
           { id: "Finance", name: "Finance" },
         ]}
       />
-      <ReferenceInput source="managerId" reference="employees" label="Manager">
-        <SelectInput
-          optionText={(record) => `${record.firstname} ${record.lastname}`}
-          validate={required()}
-        />
-      </ReferenceInput>
+      <ManagerInput />
       <DateInput
         source="startDate"
         label="Date de début"
@@ -67,14 +96,15 @@ export const InternCreate = () => (
         source="contractType"
         label="Type de contrat"
         validate={required()}
-        choices={[{ id: "Convention de stage", name: "Convention de stage" }]}
         defaultValue="Convention de stage"
+        choices={[{ id: "Convention de stage", name: "Convention de stage" }]}
       />
-      <NumberInput
-        source="stipend"
-        label="Gratification (€/mois)"
-        validate={[required(), minValue(0), maxValue(3000), validateStipend]}
+      <BooleanInput
+        source="isRemunerate"
+        label="Rémunéré"
+        defaultValue={false}
       />
+      <StipendInput />
       <SelectInput
         source="status"
         label="Statut"
