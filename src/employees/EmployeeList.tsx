@@ -9,11 +9,13 @@ import {
   EditButton,
   DeleteButton,
 } from "react-admin";
+import { QuickStatusToggle } from "./QuickStatusToggle";
 
 const filters = [
   <SearchInput source="q" alwaysOn />,
   <SelectInput
     source="department"
+    label="Département"
     choices={[
       { id: "Informatique", name: "Informatique" },
       { id: "Marketing", name: "Marketing" },
@@ -25,7 +27,7 @@ const filters = [
 
 export const EmployeeList = () => (
   <List filters={filters} perPage={5}>
-    <Datagrid rowClick="edit">
+    <Datagrid rowClick="show">
       <TextField source="firstname" label="Prénom" />
       <TextField source="lastname" label="Nom" />
       <TextField source="email" label="Email" />
@@ -36,6 +38,7 @@ export const EmployeeList = () => (
         options={{ style: "currency", currency: "EUR" }}
       />
       <BooleanField source="active" label="Actif" />
+      <QuickStatusToggle />
       <EditButton />
       <DeleteButton />
     </Datagrid>
