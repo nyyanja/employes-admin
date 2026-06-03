@@ -5,11 +5,14 @@ import {
   NumberField,
   DateField,
   SelectField,
+  BooleanField,
+  EmailField,
   ReferenceField,
   TopToolbar,
   ListButton,
   EditButton,
 } from "react-admin";
+import { ManagerCard } from "./ManagerCard";
 
 const InternShowActions = () => (
   <TopToolbar>
@@ -23,9 +26,14 @@ export const InternShow = () => (
     <SimpleShowLayout>
       <TextField source="firstname" label="Prénom" />
       <TextField source="lastname" label="Nom" />
-      <TextField source="email" label="Email" />
+      <EmailField source="email" label="Email" />
       <TextField source="department" label="Département" />
-      <ReferenceField source="managerId" reference="employees" label="Manager">
+      <ReferenceField
+        source="managerId"
+        reference="employees"
+        label="Manager"
+        link="show"
+      >
         <TextField source="firstname" /> <TextField source="lastname" />
       </ReferenceField>
       <DateField source="startDate" label="Date de début" />
@@ -36,6 +44,7 @@ export const InternShow = () => (
         label="Gratification"
         options={{ style: "currency", currency: "EUR" }}
       />
+      <BooleanField source="isRemunerate" label="Rémunéré" />
       <SelectField
         source="status"
         label="Statut"
@@ -44,6 +53,7 @@ export const InternShow = () => (
           { id: "finished", name: "Terminé" },
         ]}
       />
+      <ManagerCard />
     </SimpleShowLayout>
   </Show>
 );
